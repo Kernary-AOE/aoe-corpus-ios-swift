@@ -92,7 +92,7 @@ both side-by-side, or vendor the script in if you prefer.
   "mcpServers": {
     "ios-swift": {
       "command": "bunx",
-      "args": ["@prime-lang/mcp-server-core"],
+      "args": ["@skill-wiki/mcp-server-core"],
       "env": {
         "PRIME_DIR": "/abs/path/to/skill-corpus-ios-swift/compiled"
       }
