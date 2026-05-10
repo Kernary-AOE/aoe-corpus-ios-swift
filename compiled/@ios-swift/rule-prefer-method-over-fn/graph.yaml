@@ -1,0 +1,6 @@
+atom: "@ios-swift/rule-prefer-method-over-fn"
+relations:
+  - type: related
+    target: "@ios-swift/rule-clarity-at-call-site"
+  - type: related
+    target: "@ios-swift/principle-clarity-at-call-site"

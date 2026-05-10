@@ -1,0 +1,14 @@
+<atom
+  id="@ios-swift/principle-clarity-at-call-site"
+  kind="principle"
+  version="0.1.0"
+  domain="ios-swift"
+  tokens="325"
+  q="4.0">
+  <description>The thesis of the Swift API Design Guidelines: APIs are read more often than they are written, and Swift&apos;s type system, default-argument support, and argument-label syntax exist specifically to let you make every call site self-documenting. Optimise for the reader of the use site — not for the brevity of the declaration, not for symmetry with Objective-C, not for what feels easy to type.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="204"/>
+    <level name="core"    file="chunks/core.md"    tokens="325"/>
+    <level name="full"    file="chunks/full.md"    tokens="325"/>
+  </projection>
+</atom>

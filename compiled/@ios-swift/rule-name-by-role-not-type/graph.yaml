@@ -1,0 +1,6 @@
+atom: "@ios-swift/rule-name-by-role-not-type"
+relations:
+  - type: related
+    target: "@ios-swift/rule-clarity-at-call-site"
+  - type: related
+    target: "@ios-swift/rule-omit-needless-words"

@@ -1,0 +1,36 @@
+// Source: Swift API Design Guidelines (Apache-2.0)
+// https://www.swift.org/documentation/api-design-guidelines/#fundamentals
+
+principle SwiftAsProgressiveDisclosure {
+  id: "@ios-swift/principle-Swift-as-progressive-disclosure"
+  version: "0.1.0"
+
+  domain: ios-swift
+
+  description: "Swift is designed so that the simple form is the default, and complexity is opted into one feature at a time. A user can write `let x = 1` before they know about types; they can write `func f() { ... }` before they know about access control; they can write a `struct` before they need a `protocol`; they can use `try` before they need typed throws; they can call `f()` before they need `await`. Each feature waits until it is actually needed and only then enters the user's code."
+
+  statement: "Build APIs and code in the same shape: the common case is a one-liner; the next-most-common case adds one explicit modifier; only the genuinely complex case pulls in the full machinery. Default arguments, opt-in attributes (`@MainActor`, `@Sendable`, `@escaping`), and progressive type erasure (`some P`, `any P`) all exist so that a beginner's first use is short and a power user's specialised use is precise. Do not invert this by making the simple case carry decoration it does not need."
+
+  tags: [principles, swift, api-design, language]
+
+  applies-to: [
+    "Default arguments cover the common case; explicit arguments cover variation.",
+    "Generics: start with concrete types or `some P`; introduce explicit generics only when client code needs them.",
+    "Concurrency: synchronous first; `async` when the operation actually suspends; `actor` when state actually crosses isolation boundaries; `@Sendable` when the closure actually escapes one.",
+    "Types: `struct` before `class`; `class` before `actor`; protocol composition before generic constraints before associated types.",
+    "Error handling: non-throwing first; `throws` when failure is real; typed throws when callers must distinguish failure modes.",
+  ]
+
+  notes: [
+    "Progressive disclosure is the reason 'do the simplest thing that works' applies more strongly in Swift than in many other languages — the simpler form is *the same* form, just with fewer modifiers, so refactoring forward later is cheap.",
+    "A function signature that uses every available feature on day one is usually a smell. Each feature should appear because the call sites needed it.",
+  ]
+
+  related: [
+    @ios-swift/principle-clarity-at-call-site,
+    @ios-swift/rule-value-types-by-default,
+    @ios-swift/rule-protocol-vs-class-when-to-use,
+    @ios-swift/rule-await-not-completion-handler,
+    @ios-swift/rule-error-throws-not-result-where-possible,
+  ]
+}

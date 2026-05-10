@@ -1,0 +1,21 @@
+id: "@ios-swift/rule-value-types-by-default"
+kind: rule
+version: "0.1.0"
+description: "Value types — `struct`, `enum`, tuples — give Swift its data-race safety, predictable equality, and copy-on-write performance. The standard library is built on them: `Array`, `Dictionary`, `String`, `Set`, `Date`, all `URL`-derived types. Use them as the default for any new type that represents data, configuration, or a record. Reach for `class` only when identity, deinit cleanup, or shared mutable state through references is genuinely required."
+domain: ios-swift
+content_hash: "sha256:247368c600b8dabb09849199ed4bd7127cc3db3efe037d947137d710167cbea0"
+tokens:
+  summary: 126
+  core: 280
+  full: 301
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@ios-swift/rule-protocol-vs-class-when-to-use" }
+  - { type: related, target: "@ios-swift/rule-prefer-Sendable" }
+  - { type: related, target: "@ios-swift/rule-names-of-side-effects-end-imperative" }
+created_at: "2026-05-10"

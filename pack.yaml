@@ -1,0 +1,48 @@
+# Skill pack manifest — @ios-swift
+#
+# This file declares the Skill identity, version, and pack metadata that
+# the marketplace and Prime CLI consume. Atom files live in primes/ and
+# emit to compiled/ (see README for build instructions).
+
+prime-version: "1.0"
+name: "@ios-swift"
+version: "0.1.0"
+description: >
+  Swift API Design Guidelines (swift.org) and Google Swift Style Guide
+  distilled into typed Prime atoms — naming for clarity at the call
+  site, protocol- and value-oriented design, optional handling, and
+  the modern memory + concurrency rules every iOS / Swift agent should
+  follow. Starter seed set; intended to grow.
+
+license: Apache-2.0
+homepage: https://github.com/skill-wiki/skill-corpus-ios-swift
+repository: https://github.com/skill-wiki/skill-corpus-ios-swift
+maintainers:
+  - skill-wiki
+
+# Source corpora — see LICENSE for full attribution.
+sources:
+  - title: Swift API Design Guidelines
+    url: https://www.swift.org/documentation/api-design-guidelines/
+    license: Apache-2.0
+  - title: Google Swift Style Guide
+    url: https://google.github.io/swift/
+    license: CC-BY-3.0
+
+# Atom layout
+primes-dir: primes
+compiled-dir: compiled
+
+tags:
+  - swift
+  - ios
+  - apple
+  - api-design
+  - style-guide
+  - naming
+  - protocols
+  - value-types
+  - optionals
+  - concurrency
+  - memory-management
+  - sendable

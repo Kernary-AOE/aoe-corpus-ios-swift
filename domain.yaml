@@ -1,0 +1,143 @@
+# skill-corpus-ios-swift/domain.yaml
+#
+# Domain configuration for the Swift API Design + Google Swift Style
+# corpus. Drop this file in the corpus directory and Prime will load it
+# at startup — no code changes required.
+#
+# Schema reference: spec/DOMAIN-EXTENSION-SPEC.md
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: ios-swift
+version: "0.1.0"
+description: >
+  Domain plugin for Swift / iOS / Apple-platform corpora derived from
+  the official Swift API Design Guidelines and the Google Swift Style
+  Guide. Covers naming, protocol- and value-oriented design, optional
+  handling, error propagation, memory management in closures, and
+  structured concurrency.
+
+# ─── Tag Vocabulary ───────────────────────────────────────────────────────────
+#
+# Words that appear in a user's brief and signal this domain.
+#
+tags:
+  - swift
+  - ios
+  - ipados
+  - macos
+  - watchos
+  - tvos
+  - visionos
+  - apple
+  - xcode
+  - swiftui
+  - uikit
+  - api-design
+  - style-guide
+  - naming
+  - protocol
+  - protocol-oriented
+  - value-type
+  - struct
+  - enum
+  - class
+  - optional
+  - guard
+  - if-let
+  - force-unwrap
+  - throws
+  - result
+  - sendable
+  - concurrency
+  - async-await
+  - actor
+  - escaping-closure
+  - weak-self
+  - retain-cycle
+  - arc
+
+# ─── Retrieval Axes ───────────────────────────────────────────────────────────
+#
+# Domain-specific dimensions of a brief. Atoms tagged on these axes score
+# higher when the brief mentions the matching terms.
+#
+axes:
+  - name: scope
+    description: >
+      What part of a Swift module the guidance shapes — the public
+      surface, internal collaborators, or private implementation.
+    matches:
+      - public-api
+      - module-boundary
+      - call-site
+      - internal
+      - private
+      - test
+
+  - name: severity
+    description: >
+      How firm the recommendation is — a hard rule, a default that may
+      be overridden with reason, or stylistic preference.
+    matches:
+      - must
+      - should
+      - prefer
+      - avoid
+      - never
+
+  - name: paradigm
+    description: >
+      Which Swift design dimension the atom touches — type system,
+      naming, error handling, memory, or concurrency.
+    matches:
+      - naming
+      - types
+      - protocols
+      - generics
+      - optionals
+      - error-handling
+      - memory
+      - concurrency
+      - api-surface
+
+# ─── Composition Contract ─────────────────────────────────────────────────────
+#
+# Domain-specific fields that can appear in a retrieval call's contract block.
+# Every domain implicitly also has must_include and must_avoid.
+#
+contract:
+  swift_version:
+    type: enum
+    values:
+      - swift-5
+      - swift-6
+      - any
+    description: >
+      Target Swift language version. Swift 6 atoms (Sendable, strict
+      concurrency) demote on swift-5-only briefs.
+
+  target_surface:
+    type: enum
+    values:
+      - library
+      - app
+      - framework
+      - cli
+      - any
+    description: >
+      The kind of code being written. Public-API rules apply most
+      strictly to library and framework code.
+
+# ─── Output Validators ────────────────────────────────────────────────────────
+validators:
+  - name: rule-has-checks
+    description: >
+      Every rule atom must have a non-empty checks field that provides
+      concrete, verifiable conditions. A rule without checks is not actionable.
+    checker: builtin:rule-has-checks
+
+  - name: anti-pattern-has-counterpart
+    description: >
+      Every anti-pattern atom should have at least one related rule or
+      pattern atom that provides the recommended alternative.
+    checker: builtin:anti-pattern-has-counterpart

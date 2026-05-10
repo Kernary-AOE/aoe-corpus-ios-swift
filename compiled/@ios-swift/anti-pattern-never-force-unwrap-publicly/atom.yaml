@@ -1,0 +1,21 @@
+id: "@ios-swift/anti-pattern-never-force-unwrap-publicly"
+kind: anti-pattern
+version: "0.1.0"
+description: "Reaching for `!` on an `Optional` whose value originates from input — a network response, user input, an `Info.plist` lookup, a `URL(string:)`, a forced cast (`as!`), an IBOutlet that happens to be wired most of the time — turns every nil into an immediate runtime crash. The same applies to `try!`: if the throwing call can fail under any input the user might supply, it must not be force-tried."
+domain: ios-swift
+content_hash: "sha256:9f685be3afd1e8e09f31ef05ecca6214b8757085baca14ab819e938bdf5dcb08"
+tokens:
+  summary: 116
+  core: 462
+  full: 808
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@ios-swift/rule-guard-let-early-return" }
+  - { type: related, target: "@ios-swift/rule-optional-chaining-over-nil-check" }
+  - { type: related, target: "@ios-swift/rule-error-throws-not-result-where-possible" }
+created_at: "2026-05-10"

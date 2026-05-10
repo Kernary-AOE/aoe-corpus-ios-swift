@@ -1,0 +1,14 @@
+<atom
+  id="@ios-swift/principle-Swift-as-progressive-disclosure"
+  kind="principle"
+  version="0.1.0"
+  domain="ios-swift"
+  tokens="424"
+  q="4.0">
+  <description>Swift is designed so that the simple form is the default, and complexity is opted into one feature at a time. A user can write `let x = 1` before they know about types; they can write `func f() { ... }` before they know about access control; they can write a `struct` before they need a `protocol`; they can use `try` before they need typed throws; they can call `f()` before they need `await`. Each feature waits until it is actually needed and only then enters the user&apos;s code.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="260"/>
+    <level name="core"    file="chunks/core.md"    tokens="424"/>
+    <level name="full"    file="chunks/full.md"    tokens="424"/>
+  </projection>
+</atom>

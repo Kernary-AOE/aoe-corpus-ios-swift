@@ -1,0 +1,6 @@
+atom: "@ios-swift/rule-label-args-by-grammar"
+relations:
+  - type: related
+    target: "@ios-swift/rule-clarity-at-call-site"
+  - type: related
+    target: "@ios-swift/rule-names-of-side-effects-end-imperative"

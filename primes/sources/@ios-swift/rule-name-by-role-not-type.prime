@@ -1,0 +1,31 @@
+// Source: Swift API Design Guidelines (Apache-2.0)
+// https://www.swift.org/documentation/api-design-guidelines/#promote-clear-usage
+
+rule NameByRoleNotType {
+  id: "@ios-swift/rule-name-by-role-not-type"
+  version: "0.1.0"
+
+  label: "Name variables, parameters, and associated types by role, not by type"
+  domain: ios-swift
+
+  description: "A name should describe what a value *is for*, not what its concrete type happens to be. `var greeting: String = \"Hello\"` is better than `var string: String = \"Hello\"`; `protocol View { associatedtype Content }` is better than `associatedtype T`. The type system already says the type; the name carries the role."
+
+  checks: [
+    "Variables and parameters use role nouns (`destination`, `recipients`, `subject`, `body`), not type echoes (`url`, `array`, `dict`, `string`).",
+    "Associated types in protocols use descriptive role names (`Element`, `Iterator`, `Index`, `Failure`) — single capital letters appear only when the role really is 'any type' (e.g. `Optional<Wrapped>` uses `Wrapped`, not `T`).",
+    "Generic parameters on functions name their role when there is one (`func sort<C: Collection>(_ collection: C)`); use a single letter only for true universals.",
+    "Protocol names describing capability end in `-able`/`-ible` (`Equatable`, `Comparable`); names describing what something *is* read as nouns (`Collection`, `Sequence`).",
+  ]
+
+  tags: [naming, api-design, generics, swift]
+
+  notes: [
+    "When a role name is awkward and 'thing of the type' really is the right concept, keep the type echo (`var data: Data`). The rule is about meaning, not mechanical renaming.",
+    "Apple's Foundation uses `delegate`, `dataSource`, `target`, `action` — all role names, even though their types are protocols.",
+  ]
+
+  related: [
+    @ios-swift/rule-clarity-at-call-site,
+    @ios-swift/rule-omit-needless-words,
+  ]
+}

@@ -1,0 +1,16 @@
+# AwaitNotCompletionHandler [rule] v0.1.0
+New async APIs are written as `func f(...) async throws -> T`. The call site reads as straight-line code, errors propagate through `try`, cancellation propagates through the cooperative cancellation system, and the structured-concurrency model (`Task`, `TaskGroup`, `async let`) composes naturally. Completion-handler APIs (`(Result<T, E>) -> Void` callbacks) are reserved for two cases: (1) wrapping platform APIs that have not yet adopted `async`, and (2) interop with Objective-C code that calls back via blocks.
+domain: ios-swift
+
+## Checks
+- [ ] New public async functions are declared `async` (and `async throws` if they can fail), not as completion-handler-taking functions.
+- [ ] Existing completion-handler callers are migrated by introducing an `async` overload via `withCheckedThrowingContinuation` or `withCheckedContinuation`, then deprecating the callback form.
+- [ ] Long-running work creates a `Task`; tasks owned by a UI object are tracked so they can be cancelled in `deinit` or on view disappearance.
+- [ ] Multiple parallel async operations use `async let` or `TaskGroup`, not nested completion handlers.
+- [ ] Cancellation is checked at appropriate suspension points (`try Task.checkCancellation()` inside long loops); long-running synchronous work is broken up with `await Task.yield()` so cancellation can take effect.
+
+## Label
+Expose async work as `async` functions; use completion handlers only at non-Swift boundaries
+
+## Label
+Expose async work as `async` functions; use completion handlers only at non-Swift boundaries

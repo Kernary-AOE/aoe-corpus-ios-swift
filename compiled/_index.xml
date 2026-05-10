@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prime_index version="1.0" total="17" total_tokens="5467">
+  <cluster name="ios-swift" density="0.00">
+    <atom id="@ios-swift/anti-pattern-never-force-unwrap-publicly" kind="anti-pattern" tokens="462" q="4.0">
+      Reaching for `!` on an `Optional` whose value originates from input — a network…
+      <edge type="related" target="@ios-swift/rule-error-throws-not-result-where-possible"/>
+      <edge type="related" target="@ios-swift/rule-guard-let-early-return"/>
+      <edge type="related" target="@ios-swift/rule-optional-chaining-over-nil-check"/>
+    </atom>
+    <atom id="@ios-swift/principle-clarity-at-call-site" kind="principle" tokens="325" q="4.0">
+      The thesis of the Swift API Design Guidelines: APIs are read more often than th…
+      <edge type="related" target="@ios-swift/principle-Swift-as-progressive-disclosure"/>
+      <edge type="related" target="@ios-swift/rule-clarity-at-call-site"/>
+      <edge type="related" target="@ios-swift/rule-label-args-by-grammar"/>
+      <edge type="related" target="@ios-swift/rule-name-by-role-not-type"/>
+      <edge type="related" target="@ios-swift/rule-omit-needless-words"/>
+    </atom>
+    <atom id="@ios-swift/principle-Swift-as-progressive-disclosure" kind="principle" tokens="424" q="4.0">
+      Swift is designed so that the simple form is the default, and complexity is opt…
+      <edge type="related" target="@ios-swift/principle-clarity-at-call-site"/>
+      <edge type="related" target="@ios-swift/rule-await-not-completion-handler"/>
+      <edge type="related" target="@ios-swift/rule-error-throws-not-result-where-possible"/>
+      <edge type="related" target="@ios-swift/rule-protocol-vs-class-when-to-use"/>
+      <edge type="related" target="@ios-swift/rule-value-types-by-default"/>
+    </atom>
+    <atom id="@ios-swift/rule-await-not-completion-handler" kind="rule" tokens="372" q="4.0">
+      New async APIs are written as `func f(...) async throws -&gt; T`. The call site re…
+      <edge type="related" target="@ios-swift/rule-error-throws-not-result-where-possible"/>
+      <edge type="related" target="@ios-swift/rule-prefer-Sendable"/>
+      <edge type="related" target="@ios-swift/rule-weak-self-in-escaping-closures"/>
+    </atom>
+    <atom id="@ios-swift/rule-clarity-at-call-site" kind="rule" tokens="238" q="4.0">
+      Code is read far more often than it is written. Every naming and signature deci…
+      <edge type="related" target="@ios-swift/principle-clarity-at-call-site"/>
+      <edge type="related" target="@ios-swift/rule-label-args-by-grammar"/>
+      <edge type="related" target="@ios-swift/rule-name-by-role-not-type"/>
+      <edge type="related" target="@ios-swift/rule-omit-needless-words"/>
+    </atom>
+    <atom id="@ios-swift/rule-error-throws-not-result-where-possible" kind="rule" tokens="341" q="4.0">
+      Swift has two error-handling shapes: throwing functions (`func f() throws -&gt; T`…
+      <edge type="related" target="@ios-swift/anti-pattern-never-force-unwrap-publicly"/>
+      <edge type="related" target="@ios-swift/rule-await-not-completion-handler"/>
+      <edge type="related" target="@ios-swift/rule-protocol-vs-class-when-to-use"/>
+    </atom>
+    <atom id="@ios-swift/rule-guard-let-early-return" kind="rule" tokens="287" q="4.0">
+      When the rest of a function does not make sense without a particular optional b…
+      <edge type="related" target="@ios-swift/anti-pattern-never-force-unwrap-publicly"/>
+      <edge type="related" target="@ios-swift/rule-optional-chaining-over-nil-check"/>
+    </atom>
+    <atom id="@ios-swift/rule-label-args-by-grammar" kind="rule" tokens="339" q="4.0">
+      Argument labels exist to make the call site readable. The decision rule: read t…
+      <edge type="related" target="@ios-swift/rule-clarity-at-call-site"/>
+      <edge type="related" target="@ios-swift/rule-names-of-side-effects-end-imperative"/>
+    </atom>
+    <atom id="@ios-swift/rule-name-by-role-not-type" kind="rule" tokens="293" q="4.0">
+      A name should describe what a value *is for*, not what its concrete type happen…
+      <edge type="related" target="@ios-swift/rule-clarity-at-call-site"/>
+      <edge type="related" target="@ios-swift/rule-omit-needless-words"/>
+    </atom>
+    <atom id="@ios-swift/rule-names-of-side-effects-end-imperative" kind="rule" tokens="274" q="4.0">
+      The grammar of a method name signals whether it mutates. Mutating methods use i…
+      <edge type="related" target="@ios-swift/rule-clarity-at-call-site"/>
+      <edge type="related" target="@ios-swift/rule-label-args-by-grammar"/>
+      <edge type="related" target="@ios-swift/rule-value-types-by-default"/>
+    </atom>
+    <atom id="@ios-swift/rule-omit-needless-words" kind="rule" tokens="265" q="4.0">
+      Every word in a name should carry information at the call site. Words that mere…
+      <edge type="related" target="@ios-swift/rule-clarity-at-call-site"/>
+      <edge type="related" target="@ios-swift/rule-name-by-role-not-type"/>
+    </atom>
+    <atom id="@ios-swift/rule-optional-chaining-over-nil-check" kind="rule" tokens="298" q="4.0">
+      When the goal is &apos;do this only if the value is present, otherwise produce nothi…
+      <edge type="related" target="@ios-swift/anti-pattern-never-force-unwrap-publicly"/>
+      <edge type="related" target="@ios-swift/rule-guard-let-early-return"/>
+    </atom>
+    <atom id="@ios-swift/rule-prefer-method-over-fn" kind="rule" tokens="267" q="4.0">
+      Free functions are reserved for cases with no obvious `self`: when the operatio…
+      <edge type="related" target="@ios-swift/principle-clarity-at-call-site"/>
+      <edge type="related" target="@ios-swift/rule-clarity-at-call-site"/>
+    </atom>
+    <atom id="@ios-swift/rule-prefer-Sendable" kind="rule" tokens="316" q="4.0">
+      Under Swift 6 strict concurrency, any value passed across an `actor` boundary, …
+      <edge type="related" target="@ios-swift/rule-await-not-completion-handler"/>
+      <edge type="related" target="@ios-swift/rule-protocol-vs-class-when-to-use"/>
+      <edge type="related" target="@ios-swift/rule-value-types-by-default"/>
+      <edge type="related" target="@ios-swift/rule-weak-self-in-escaping-closures"/>
+    </atom>
+    <atom id="@ios-swift/rule-protocol-vs-class-when-to-use" kind="rule" tokens="329" q="4.0">
+      When defining a new type, ask what is being modelled. (1) A *capability* shared…
+      <edge type="related" target="@ios-swift/principle-Swift-as-progressive-disclosure"/>
+      <edge type="related" target="@ios-swift/rule-prefer-Sendable"/>
+      <edge type="related" target="@ios-swift/rule-value-types-by-default"/>
+    </atom>
+    <atom id="@ios-swift/rule-value-types-by-default" kind="rule" tokens="280" q="4.0">
+      Value types — `struct`, `enum`, tuples — give Swift its data-race safety, predi…
+      <edge type="related" target="@ios-swift/rule-names-of-side-effects-end-imperative"/>
+      <edge type="related" target="@ios-swift/rule-prefer-Sendable"/>
+      <edge type="related" target="@ios-swift/rule-protocol-vs-class-when-to-use"/>
+    </atom>
+    <atom id="@ios-swift/rule-weak-self-in-escaping-closures" kind="rule" tokens="357" q="4.0">
+      Strong captures inside an `@escaping` closure that the receiver itself stores —…
+      <edge type="related" target="@ios-swift/rule-await-not-completion-handler"/>
+      <edge type="related" target="@ios-swift/rule-prefer-Sendable"/>
+      <edge type="related" target="@ios-swift/rule-protocol-vs-class-when-to-use"/>
+    </atom>
+  </cluster>
+</prime_index>

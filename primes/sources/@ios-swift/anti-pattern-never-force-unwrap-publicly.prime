@@ -1,0 +1,41 @@
+// Source: Google Swift Style Guide (CC-BY-3.0)
+// https://google.github.io/swift/#optional-types
+
+anti-pattern NeverForceUnwrapPublicly {
+  id: "@ios-swift/anti-pattern-never-force-unwrap-publicly"
+  version: "0.1.0"
+
+  label: "Force-unwrapping (`!`) optionals on data that crosses an API or input boundary"
+  domain: ios-swift
+
+  description: "Reaching for `!` on an `Optional` whose value originates from input — a network response, user input, an `Info.plist` lookup, a `URL(string:)`, a forced cast (`as!`), an IBOutlet that happens to be wired most of the time — turns every nil into an immediate runtime crash. The same applies to `try!`: if the throwing call can fail under any input the user might supply, it must not be force-tried."
+
+  why-bad: "Force-unwrap converts a recoverable absence into a `Swift runtime: Fatal error: Unexpectedly found nil ...` crash that takes the whole process down. On iOS, that is a user-visible app crash. Worse, the crash often points at the unwrap site rather than at where the nil was first introduced, making the bug hard to trace. The compiler's optional system exists specifically so that absence is a value the program can reason about; force-unwrap throws that information away."
+
+  instead-do: """
+    Use `guard let` for early-return on a precondition that must hold for
+    the rest of the function to make sense. Use `if let` when the rest of
+    the function has both a non-nil and a nil branch. Use optional
+    chaining (`a?.b?.c`) when one branch produces a value and the other
+    produces nothing. Use the nil-coalescing operator (`x ?? default`)
+    when there is a sensible fallback. For `try`, prefer `try?` (drops
+    the error to nil) or `do { try ... } catch { ... }` over `try!`.
+
+    Force-unwrap is acceptable only in *compile-time impossible* cases
+    inside trusted code: a regex literal that cannot fail to construct, a
+    static dictionary lookup with a key known to the source. Even then,
+    paired with a comment that names why the optional cannot be nil.
+  """
+
+  notes: [
+    "Implicitly-unwrapped optionals (`var x: T!`) are the same anti-pattern with hidden syntax. Every IBOutlet declared `T!` is a force-unwrap-on-access in disguise.",
+    "`as!` and `try!` carry the same crash semantics; the rule applies equally to them.",
+    "On the call site of a public API, a force-unwrap inside the implementation crashes *the caller's* process. That is a contract violation regardless of what the implementation knows.",
+  ]
+
+  related: [
+    @ios-swift/rule-guard-let-early-return,
+    @ios-swift/rule-optional-chaining-over-nil-check,
+    @ios-swift/rule-error-throws-not-result-where-possible,
+  ]
+}

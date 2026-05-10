@@ -1,0 +1,20 @@
+id: "@ios-swift/rule-optional-chaining-over-nil-check"
+kind: rule
+version: "0.1.0"
+description: "When the goal is 'do this only if the value is present, otherwise produce nothing or a default', Swift gives three short-circuiting forms that are clearer than an `if x != nil` check followed by a body that uses `x!`. Optional chaining (`a?.b?.c()`) propagates nil. Nil-coalescing (`x ?? default`) supplies a fallback. Pattern matching (`if case let .some(value) = x`) reads the cases explicitly. Each removes a force-unwrap and makes the absence-handling part of the expression."
+domain: ios-swift
+content_hash: "sha256:afc65c12f782a97af1c5178e66b6f85b37cda5cf82219c0552172da755b0225c"
+tokens:
+  summary: 136
+  core: 298
+  full: 317
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@ios-swift/anti-pattern-never-force-unwrap-publicly" }
+  - { type: related, target: "@ios-swift/rule-guard-let-early-return" }
+created_at: "2026-05-10"

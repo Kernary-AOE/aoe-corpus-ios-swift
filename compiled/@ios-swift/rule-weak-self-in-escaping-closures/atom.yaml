@@ -1,0 +1,21 @@
+id: "@ios-swift/rule-weak-self-in-escaping-closures"
+kind: rule
+version: "0.1.0"
+description: "Strong captures inside an `@escaping` closure that the receiver itself stores — completion blocks, Combine subscribers, NotificationCenter observers, async tasks held on a controller, timer handlers — create a retain cycle. The receiver retains the closure, the closure retains the receiver, neither deinits. The fix is `[weak self]` in the capture list, paired with a `guard let self else { return }` (or optional-chained `self?.`) inside the body."
+domain: ios-swift
+content_hash: "sha256:bf18258aa37ccb70f285b708eacbaa044c42b6826aacf7becc13726d2651791c"
+tokens:
+  summary: 128
+  core: 357
+  full: 384
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@ios-swift/rule-await-not-completion-handler" }
+  - { type: related, target: "@ios-swift/rule-prefer-Sendable" }
+  - { type: related, target: "@ios-swift/rule-protocol-vs-class-when-to-use" }
+created_at: "2026-05-10"

@@ -1,0 +1,32 @@
+// Source: Swift API Design Guidelines (Apache-2.0)
+// https://www.swift.org/documentation/api-design-guidelines/#strive-for-fluent-usage
+
+rule NamesOfSideEffectsAreImperative {
+  id: "@ios-swift/rule-names-of-side-effects-end-imperative"
+  version: "0.1.0"
+
+  label: "Mutating methods read as imperatives; non-mutating versions read as nouns or past participles"
+  domain: ios-swift
+
+  description: "The grammar of a method name signals whether it mutates. Mutating methods use imperative verb phrases: `array.sort()`, `set.insert(x)`, `string.append(\"!\")`. Their non-mutating counterparts use the past participle (`-ed`) or present participle (`-ing`) form: `array.sorted()`, `string.appending(\"!\")`. When `-ed` is awkward, prefer the noun phrase: `x.union(y)` (non-mutating) vs. `x.formUnion(y)` (mutating)."
+
+  checks: [
+    "Mutating methods are imperative verbs (`sort`, `reverse`, `append`, `remove`).",
+    "Non-mutating versions of the same operation use `-ed` / `-ing` (`sorted`, `reversed`, `appending`) or `form-` prefix on the mutating side (`formUnion`, `formIntersection`).",
+    "Side-effect-free methods that return a value read as a noun phrase describing the value (`x.distance(to: y)`, `array.lazy`).",
+    "Boolean methods read as assertions about the receiver (`isEmpty`, `contains(x)`, `intersects(other)`).",
+  ]
+
+  tags: [naming, api-design, mutation, swift]
+
+  notes: [
+    "The pair convention reaches into the standard library: `Array.sort()` mutates; `Array.sorted()` returns a new copy. An agent generating Swift API should preserve this pair when both operations exist.",
+    "When only one of the pair makes sense, name it for what it does — do not invent the missing partner just to be symmetric.",
+  ]
+
+  related: [
+    @ios-swift/rule-label-args-by-grammar,
+    @ios-swift/rule-clarity-at-call-site,
+    @ios-swift/rule-value-types-by-default,
+  ]
+}

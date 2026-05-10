@@ -1,0 +1,34 @@
+// Source: Swift API Design Guidelines (Apache-2.0)
+// https://www.swift.org/documentation/api-design-guidelines/
+
+rule PreferSendable {
+  id: "@ios-swift/rule-prefer-Sendable"
+  version: "0.1.0"
+
+  label: "Public types crossing concurrency boundaries are Sendable; document why anything is not"
+  domain: ios-swift
+
+  description: "Under Swift 6 strict concurrency, any value passed across an `actor` boundary, into a detached task, or stored in `@Sendable` state must conform to `Sendable`. Public APIs benefit from being Sendable-by-default: it lets clients use the type freely from any isolation context. For value types with Sendable stored properties the conformance is automatic; for reference types it requires the type to be immutable, an `actor`, or to enforce its own synchronisation."
+
+  checks: [
+    "Public structs / enums / tuples with Sendable stored properties declare `: Sendable` (or are inferred Sendable in Swift 6 frozen modes).",
+    "Public final classes that hold only let-properties of Sendable types declare `: Sendable`.",
+    "Reference types that mutate internal state across threads use `actor` rather than `class + lock` whenever possible.",
+    "Where a class cannot be made Sendable, the API documents the isolation requirement and any escape hatch (`@unchecked Sendable` paired with a comment justifying the synchronisation discipline).",
+    "Closures stored or escaped across actor boundaries are typed `@Sendable`.",
+  ]
+
+  tags: [concurrency, sendable, swift-6, types, swift]
+
+  notes: [
+    "`@unchecked Sendable` is a promise to the compiler that you have synchronised access yourself. Use sparingly, and only behind a comment that names the synchronisation primitive.",
+    "Marking a type Sendable later is a source-breaking change for clients only if you tighten its contents; relaxing to non-Sendable is more breaking.",
+  ]
+
+  related: [
+    @ios-swift/rule-await-not-completion-handler,
+    @ios-swift/rule-value-types-by-default,
+    @ios-swift/rule-protocol-vs-class-when-to-use,
+    @ios-swift/rule-weak-self-in-escaping-closures,
+  ]
+}

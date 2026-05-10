@@ -1,0 +1,20 @@
+id: "@ios-swift/rule-label-args-by-grammar"
+kind: rule
+version: "0.1.0"
+description: "Argument labels exist to make the call site readable. The decision rule: read the call as English. (1) When the argument is the direct object of a verb method, omit the label: `removeAll()`, `view.add(subview)`. (2) When the first argument is a prepositional complement, fold the preposition into the base name: `move(to: x)`, `dictionary.removeValue(forKey: k)`. (3) When the first argument is part of a noun phrase that names what is constructed, label it: `Color(red:green:blue:)`, `Vector(x:y:z:)`. (4) Trailing arguments always get labels."
+domain: ios-swift
+content_hash: "sha256:9ef730877f0e8da21ef75ff8a3b7bc567915959022403ab36e91fd786ac93ebb"
+tokens:
+  summary: 151
+  core: 339
+  full: 361
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@ios-swift/rule-clarity-at-call-site" }
+  - { type: related, target: "@ios-swift/rule-names-of-side-effects-end-imperative" }
+created_at: "2026-05-10"

@@ -1,0 +1,10 @@
+atom: "@ios-swift/rule-prefer-Sendable"
+relations:
+  - type: related
+    target: "@ios-swift/rule-await-not-completion-handler"
+  - type: related
+    target: "@ios-swift/rule-value-types-by-default"
+  - type: related
+    target: "@ios-swift/rule-protocol-vs-class-when-to-use"
+  - type: related
+    target: "@ios-swift/rule-weak-self-in-escaping-closures"

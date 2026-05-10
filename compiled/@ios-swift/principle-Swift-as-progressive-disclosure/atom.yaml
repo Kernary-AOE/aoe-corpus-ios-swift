@@ -1,0 +1,23 @@
+id: "@ios-swift/principle-Swift-as-progressive-disclosure"
+kind: principle
+version: "0.1.0"
+description: "Swift is designed so that the simple form is the default, and complexity is opted into one feature at a time. A user can write `let x = 1` before they know about types; they can write `func f() { ... }` before they know about access control; they can write a `struct` before they need a `protocol`; they can use `try` before they need typed throws; they can call `f()` before they need `await`. Each feature waits until it is actually needed and only then enters the user's code."
+domain: ios-swift
+content_hash: "sha256:5250efd99c19ce84c01086234ec1a8fcf8a76bef95819f22de7e03ab6a162b94"
+tokens:
+  summary: 260
+  core: 424
+  full: 424
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@ios-swift/principle-clarity-at-call-site" }
+  - { type: related, target: "@ios-swift/rule-value-types-by-default" }
+  - { type: related, target: "@ios-swift/rule-protocol-vs-class-when-to-use" }
+  - { type: related, target: "@ios-swift/rule-await-not-completion-handler" }
+  - { type: related, target: "@ios-swift/rule-error-throws-not-result-where-possible" }
+created_at: "2026-05-10"

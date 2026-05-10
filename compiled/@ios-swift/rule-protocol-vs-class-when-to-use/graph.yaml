@@ -1,0 +1,8 @@
+atom: "@ios-swift/rule-protocol-vs-class-when-to-use"
+relations:
+  - type: related
+    target: "@ios-swift/rule-value-types-by-default"
+  - type: related
+    target: "@ios-swift/rule-prefer-Sendable"
+  - type: related
+    target: "@ios-swift/principle-Swift-as-progressive-disclosure"

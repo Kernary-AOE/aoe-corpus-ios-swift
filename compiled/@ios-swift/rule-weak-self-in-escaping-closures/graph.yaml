@@ -1,0 +1,8 @@
+atom: "@ios-swift/rule-weak-self-in-escaping-closures"
+relations:
+  - type: related
+    target: "@ios-swift/rule-await-not-completion-handler"
+  - type: related
+    target: "@ios-swift/rule-prefer-Sendable"
+  - type: related
+    target: "@ios-swift/rule-protocol-vs-class-when-to-use"

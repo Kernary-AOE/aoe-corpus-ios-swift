@@ -1,0 +1,23 @@
+id: "@ios-swift/principle-clarity-at-call-site"
+kind: principle
+version: "0.1.0"
+description: "The thesis of the Swift API Design Guidelines: APIs are read more often than they are written, and Swift's type system, default-argument support, and argument-label syntax exist specifically to let you make every call site self-documenting. Optimise for the reader of the use site — not for the brevity of the declaration, not for symmetry with Objective-C, not for what feels easy to type."
+domain: ios-swift
+content_hash: "sha256:44e32ed699b41be7e241da30e13539f5016f2d4b249e944cd29848fca303f006"
+tokens:
+  summary: 204
+  core: 325
+  full: 325
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@ios-swift/rule-clarity-at-call-site" }
+  - { type: related, target: "@ios-swift/rule-omit-needless-words" }
+  - { type: related, target: "@ios-swift/rule-label-args-by-grammar" }
+  - { type: related, target: "@ios-swift/rule-name-by-role-not-type" }
+  - { type: related, target: "@ios-swift/principle-Swift-as-progressive-disclosure" }
+created_at: "2026-05-10"

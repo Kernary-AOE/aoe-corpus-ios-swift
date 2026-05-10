@@ -1,0 +1,3 @@
+# ErrorThrowsNotResultWherePossible [rule] v0.1.0
+Swift has two error-handling shapes: throwing functions (`func f() throws -> T`, `func f() async throws -> T`) and `Result<Success, Failure>`. The throwing form is the language-level mechanism — it integrates with `try`/`catch`, with `async`/`await`, and with typed-throws (Swift 6). Use it for any function whose call site immediately handles or propagates the error. Reserve `Result` for cases where the error must be *stored* alongside the value: callback bridges that cannot be made `async`, completion handlers from older APIs, or stream events that emit successes and failures over time.
+domain: ios-swift

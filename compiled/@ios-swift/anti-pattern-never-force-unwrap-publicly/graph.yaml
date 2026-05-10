@@ -1,0 +1,8 @@
+atom: "@ios-swift/anti-pattern-never-force-unwrap-publicly"
+relations:
+  - type: related
+    target: "@ios-swift/rule-guard-let-early-return"
+  - type: related
+    target: "@ios-swift/rule-optional-chaining-over-nil-check"
+  - type: related
+    target: "@ios-swift/rule-error-throws-not-result-where-possible"

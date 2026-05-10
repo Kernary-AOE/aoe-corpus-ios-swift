@@ -1,0 +1,22 @@
+id: "@ios-swift/rule-clarity-at-call-site"
+kind: rule
+version: "0.1.0"
+description: "Code is read far more often than it is written. Every naming and signature decision — argument labels, method vs. free function, default values, presence or absence of a verb — must be evaluated by reading a sample call out loud and asking whether it reads like English documenting its own intent. Brevity in the declaration is not the goal; clarity at the use site is."
+domain: ios-swift
+content_hash: "sha256:b55ac22d3686ebbe9188e079a18840209037707ee321fc3628b199a1730ca5b3"
+tokens:
+  summary: 106
+  core: 238
+  full: 257
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@ios-swift/principle-clarity-at-call-site" }
+  - { type: related, target: "@ios-swift/rule-omit-needless-words" }
+  - { type: related, target: "@ios-swift/rule-name-by-role-not-type" }
+  - { type: related, target: "@ios-swift/rule-label-args-by-grammar" }
+created_at: "2026-05-10"

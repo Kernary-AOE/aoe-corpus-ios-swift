@@ -1,0 +1,20 @@
+id: "@ios-swift/rule-omit-needless-words"
+kind: rule
+version: "0.1.0"
+description: "Every word in a name should carry information at the call site. Words that merely repeat type information already present in the signature are noise: `removeElement(_ element: Element)` is `remove(_ element: Element)`. Words restating the receiver are noise: `string.appendString(...)` is `string.append(...)`. Words restating the return type are noise: `tableView.numberOfSectionsInTableView` is `tableView.numberOfSections`."
+domain: ios-swift
+content_hash: "sha256:c3ff9f23cdc8c3d73c868edef2b300cf08ea0e27de6af9f4a3aad4f9b1f1e8f3"
+tokens:
+  summary: 120
+  core: 265
+  full: 281
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@ios-swift/rule-clarity-at-call-site" }
+  - { type: related, target: "@ios-swift/rule-name-by-role-not-type" }
+created_at: "2026-05-10"

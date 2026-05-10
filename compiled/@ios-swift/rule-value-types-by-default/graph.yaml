@@ -1,0 +1,8 @@
+atom: "@ios-swift/rule-value-types-by-default"
+relations:
+  - type: related
+    target: "@ios-swift/rule-protocol-vs-class-when-to-use"
+  - type: related
+    target: "@ios-swift/rule-prefer-Sendable"
+  - type: related
+    target: "@ios-swift/rule-names-of-side-effects-end-imperative"

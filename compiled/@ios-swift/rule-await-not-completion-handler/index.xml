@@ -1,0 +1,14 @@
+<atom
+  id="@ios-swift/rule-await-not-completion-handler"
+  kind="rule"
+  version="0.1.0"
+  domain="ios-swift"
+  tokens="372"
+  q="4.0">
+  <description>New async APIs are written as `func f(...) async throws -&gt; T`. The call site reads as straight-line code, errors propagate through `try`, cancellation propagates through the cooperative cancellation system, and the structured-concurrency model (`Task`, `TaskGroup`, `async let`) composes naturally. Completion-handler APIs (`(Result&lt;T, E&gt;) -&gt; Void` callbacks) are reserved for two cases: (1) wrapping platform APIs that have not yet adopted `async`, and (2) interop with Objective-C code that calls back via blocks.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="144"/>
+    <level name="core"    file="chunks/core.md"    tokens="372"/>
+    <level name="full"    file="chunks/full.md"    tokens="398"/>
+  </projection>
+</atom>

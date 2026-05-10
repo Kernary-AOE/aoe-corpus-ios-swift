@@ -1,0 +1,8 @@
+atom: "@ios-swift/rule-await-not-completion-handler"
+relations:
+  - type: related
+    target: "@ios-swift/rule-error-throws-not-result-where-possible"
+  - type: related
+    target: "@ios-swift/rule-prefer-Sendable"
+  - type: related
+    target: "@ios-swift/rule-weak-self-in-escaping-closures"

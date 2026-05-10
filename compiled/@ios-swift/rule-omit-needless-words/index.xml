@@ -1,0 +1,14 @@
+<atom
+  id="@ios-swift/rule-omit-needless-words"
+  kind="rule"
+  version="0.1.0"
+  domain="ios-swift"
+  tokens="265"
+  q="4.0">
+  <description>Every word in a name should carry information at the call site. Words that merely repeat type information already present in the signature are noise: `removeElement(_ element: Element)` is `remove(_ element: Element)`. Words restating the receiver are noise: `string.appendString(...)` is `string.append(...)`. Words restating the return type are noise: `tableView.numberOfSectionsInTableView` is `tableView.numberOfSections`.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="120"/>
+    <level name="core"    file="chunks/core.md"    tokens="265"/>
+    <level name="full"    file="chunks/full.md"    tokens="281"/>
+  </projection>
+</atom>

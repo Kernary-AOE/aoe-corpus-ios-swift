@@ -1,0 +1,12 @@
+atom: "@ios-swift/principle-Swift-as-progressive-disclosure"
+relations:
+  - type: related
+    target: "@ios-swift/principle-clarity-at-call-site"
+  - type: related
+    target: "@ios-swift/rule-value-types-by-default"
+  - type: related
+    target: "@ios-swift/rule-protocol-vs-class-when-to-use"
+  - type: related
+    target: "@ios-swift/rule-await-not-completion-handler"
+  - type: related
+    target: "@ios-swift/rule-error-throws-not-result-where-possible"

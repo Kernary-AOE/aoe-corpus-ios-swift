@@ -1,0 +1,6 @@
+atom: "@ios-swift/rule-optional-chaining-over-nil-check"
+relations:
+  - type: related
+    target: "@ios-swift/anti-pattern-never-force-unwrap-publicly"
+  - type: related
+    target: "@ios-swift/rule-guard-let-early-return"

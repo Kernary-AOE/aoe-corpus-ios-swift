@@ -1,0 +1,20 @@
+id: "@ios-swift/rule-name-by-role-not-type"
+kind: rule
+version: "0.1.0"
+description: "A name should describe what a value *is for*, not what its concrete type happens to be. `var greeting: String = \"Hello\"` is better than `var string: String = \"Hello\"`; `protocol View { associatedtype Content }` is better than `associatedtype T`. The type system already says the type; the name carries the role."
+domain: ios-swift
+content_hash: "sha256:28e18f95ce355676399f171867f2e9f5e7a50ae79c639faf1cd848a535c99a04"
+tokens:
+  summary: 91
+  core: 293
+  full: 313
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@ios-swift/rule-clarity-at-call-site" }
+  - { type: related, target: "@ios-swift/rule-omit-needless-words" }
+created_at: "2026-05-10"

@@ -1,0 +1,3 @@
+# LabelArgumentsByGrammar [rule] v0.1.0
+Argument labels exist to make the call site readable. The decision rule: read the call as English. (1) When the argument is the direct object of a verb method, omit the label: `removeAll()`, `view.add(subview)`. (2) When the first argument is a prepositional complement, fold the preposition into the base name: `move(to: x)`, `dictionary.removeValue(forKey: k)`. (3) When the first argument is part of a noun phrase that names what is constructed, label it: `Color(red:green:blue:)`, `Vector(x:y:z:)`. (4) Trailing arguments always get labels.
+domain: ios-swift

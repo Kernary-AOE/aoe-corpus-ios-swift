@@ -1,0 +1,32 @@
+// Source: Swift API Design Guidelines (Apache-2.0)
+// https://www.swift.org/documentation/api-design-guidelines/#fundamentals
+
+rule ValueTypesByDefault {
+  id: "@ios-swift/rule-value-types-by-default"
+  version: "0.1.0"
+
+  label: "Model new types as struct or enum unless reference semantics are required"
+  domain: ios-swift
+
+  description: "Value types — `struct`, `enum`, tuples — give Swift its data-race safety, predictable equality, and copy-on-write performance. The standard library is built on them: `Array`, `Dictionary`, `String`, `Set`, `Date`, all `URL`-derived types. Use them as the default for any new type that represents data, configuration, or a record. Reach for `class` only when identity, deinit cleanup, or shared mutable state through references is genuinely required."
+
+  checks: [
+    "New domain types are declared `struct` (records, configurations, DTOs, view-state, model values).",
+    "Closed sets of named cases are declared `enum`, often with associated values for case-specific data.",
+    "Equatable / Hashable conformance for value types is synthesised by the compiler — declared but not hand-written.",
+    "Copy-on-write is relied on for performance: large `struct` payloads use COW under the hood (`Array`, `Dictionary`, custom COW box) rather than being prematurely converted to `class`.",
+  ]
+
+  tags: [types, value-types, struct, enum, swift]
+
+  notes: [
+    "Mutating methods on a value type are explicit about mutation (`mutating func ...`); a non-`var` binding cannot accidentally mutate a value. This is a feature.",
+    "For SwiftUI specifically, `View`, `State`, and most model types must be value types — the framework relies on that semantics.",
+  ]
+
+  related: [
+    @ios-swift/rule-protocol-vs-class-when-to-use,
+    @ios-swift/rule-prefer-Sendable,
+    @ios-swift/rule-names-of-side-effects-end-imperative,
+  ]
+}

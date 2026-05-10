@@ -1,0 +1,31 @@
+// Source: Swift API Design Guidelines (Apache-2.0)
+// https://www.swift.org/documentation/api-design-guidelines/#promote-clear-usage
+
+rule OmitNeedlessWords {
+  id: "@ios-swift/rule-omit-needless-words"
+  version: "0.1.0"
+
+  label: "Omit words that the type system already makes obvious"
+  domain: ios-swift
+
+  description: "Every word in a name should carry information at the call site. Words that merely repeat type information already present in the signature are noise: `removeElement(_ element: Element)` is `remove(_ element: Element)`. Words restating the receiver are noise: `string.appendString(...)` is `string.append(...)`. Words restating the return type are noise: `tableView.numberOfSectionsInTableView` is `tableView.numberOfSections`."
+
+  checks: [
+    "Read each word of the API name and ask: does removing this word make the call site less clear? If no, remove it.",
+    "Method names do not repeat the type of an argument that already has its type spelled out (`add(observer:)`, not `addObserver(observer:)`).",
+    "Method names do not repeat the receiver type (`Color.darker()`, not `Color.colorByMakingDarker()`).",
+    "Property names do not repeat the type (`isFavorite: Bool`, not `favoriteFlag: Bool`; `name: String`, not `nameString: String`).",
+  ]
+
+  tags: [naming, api-design, swift]
+
+  notes: [
+    "The exception: when omitting a word produces an ambiguous call site, keep the word. `remove(at: 5)` keeps `at:` because `remove(5)` would not say what the 5 means.",
+    "Words that are part of a domain noun phrase (`UTF-8 string`, `HTTP request`) are not 'needless' even though they restate type information — the noun phrase is the meaningful unit.",
+  ]
+
+  related: [
+    @ios-swift/rule-clarity-at-call-site,
+    @ios-swift/rule-name-by-role-not-type,
+  ]
+}

@@ -1,0 +1,20 @@
+id: "@ios-swift/rule-prefer-method-over-fn"
+kind: rule
+version: "0.1.0"
+description: "Free functions are reserved for cases with no obvious `self`: when the operation has no candidate primary owner, when it is a generic utility over multiple unrelated types, or when it forms part of a domain notation (e.g. `min(x, y)`, `sin(angle)`). Otherwise the operation belongs as a method on the most relevant type, or as a computed property when it is a value-with-no-arguments-and-no-side-effects."
+domain: ios-swift
+content_hash: "sha256:3880abe1b078a09768cceb76beb661fa194b07f423addb1550ecd260a13666a6"
+tokens:
+  summary: 117
+  core: 267
+  full: 282
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@ios-swift/rule-clarity-at-call-site" }
+  - { type: related, target: "@ios-swift/principle-clarity-at-call-site" }
+created_at: "2026-05-10"

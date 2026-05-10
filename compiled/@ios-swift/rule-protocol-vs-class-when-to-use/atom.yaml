@@ -1,0 +1,21 @@
+id: "@ios-swift/rule-protocol-vs-class-when-to-use"
+kind: rule
+version: "0.1.0"
+description: "When defining a new type, ask what is being modelled. (1) A *capability* shared across unrelated concrete types → `protocol`. (2) A *value* without identity (a coordinate, a measurement, a record) → `struct` or `enum`. (3) A *thing with identity* — a network connection, a file handle, a long-lived UI controller, a node in a shared mutable graph — → `class` (or `actor` if it carries state across concurrent contexts). The default in Swift is value-with-protocol; classes are the exception that buys reference semantics."
+domain: ios-swift
+content_hash: "sha256:c0aa3fcec092347e339bce2951150d4b6f5fc58abd4a9d5fffb4cadabd6dd9ca"
+tokens:
+  summary: 145
+  core: 329
+  full: 357
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@ios-swift/rule-value-types-by-default" }
+  - { type: related, target: "@ios-swift/rule-prefer-Sendable" }
+  - { type: related, target: "@ios-swift/principle-Swift-as-progressive-disclosure" }
+created_at: "2026-05-10"

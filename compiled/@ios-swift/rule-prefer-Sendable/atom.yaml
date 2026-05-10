@@ -1,0 +1,22 @@
+id: "@ios-swift/rule-prefer-Sendable"
+kind: rule
+version: "0.1.0"
+description: "Under Swift 6 strict concurrency, any value passed across an `actor` boundary, into a detached task, or stored in `@Sendable` state must conform to `Sendable`. Public APIs benefit from being Sendable-by-default: it lets clients use the type freely from any isolation context. For value types with Sendable stored properties the conformance is automatic; for reference types it requires the type to be immutable, an `actor`, or to enforce its own synchronisation."
+domain: ios-swift
+content_hash: "sha256:cf46a24177339a0b624dbe1ab49fd3a281996b9d00e494ffaec96ba49e8c3c66"
+tokens:
+  summary: 128
+  core: 316
+  full: 340
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@ios-swift/rule-await-not-completion-handler" }
+  - { type: related, target: "@ios-swift/rule-value-types-by-default" }
+  - { type: related, target: "@ios-swift/rule-protocol-vs-class-when-to-use" }
+  - { type: related, target: "@ios-swift/rule-weak-self-in-escaping-closures" }
+created_at: "2026-05-10"

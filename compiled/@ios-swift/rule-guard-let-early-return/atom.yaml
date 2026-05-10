@@ -1,0 +1,20 @@
+id: "@ios-swift/rule-guard-let-early-return"
+kind: rule
+version: "0.1.0"
+description: "When the rest of a function does not make sense without a particular optional being non-nil, write `guard let x = optionalX else { return ... }`. The bound name is in scope for the entire remainder of the function, and the failure case sits at the top where it is easy to read. Use `if let` only when both branches do real work; do not use `if let` to bind a precondition and then put the entire function body inside the `if`."
+domain: ios-swift
+content_hash: "sha256:201c00e948bf4a190da99724cf60a215c7924ab258dafa0d0dcdfa6ce1ee3974"
+tokens:
+  summary: 120
+  core: 287
+  full: 312
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@ios-swift/anti-pattern-never-force-unwrap-publicly" }
+  - { type: related, target: "@ios-swift/rule-optional-chaining-over-nil-check" }
+created_at: "2026-05-10"

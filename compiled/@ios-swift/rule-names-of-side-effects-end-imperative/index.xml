@@ -1,0 +1,14 @@
+<atom
+  id="@ios-swift/rule-names-of-side-effects-end-imperative"
+  kind="rule"
+  version="0.1.0"
+  domain="ios-swift"
+  tokens="274"
+  q="4.0">
+  <description>The grammar of a method name signals whether it mutates. Mutating methods use imperative verb phrases: `array.sort()`, `set.insert(x)`, `string.append(&quot;!&quot;)`. Their non-mutating counterparts use the past participle (`-ed`) or present participle (`-ing`) form: `array.sorted()`, `string.appending(&quot;!&quot;)`. When `-ed` is awkward, prefer the noun phrase: `x.union(y)` (non-mutating) vs. `x.formUnion(y)` (mutating).</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="119"/>
+    <level name="core"    file="chunks/core.md"    tokens="274"/>
+    <level name="full"    file="chunks/full.md"    tokens="300"/>
+  </projection>
+</atom>

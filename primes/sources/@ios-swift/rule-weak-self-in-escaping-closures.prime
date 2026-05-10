@@ -1,0 +1,33 @@
+// Source: Google Swift Style Guide (CC-BY-3.0)
+// https://google.github.io/swift/#capture-lists
+
+rule WeakSelfInEscapingClosures {
+  id: "@ios-swift/rule-weak-self-in-escaping-closures"
+  version: "0.1.0"
+
+  label: "Capture `self` weakly in any escaping closure stored on `self` or owned by a longer-lived object"
+  domain: ios-swift
+
+  description: "Strong captures inside an `@escaping` closure that the receiver itself stores — completion blocks, Combine subscribers, NotificationCenter observers, async tasks held on a controller, timer handlers — create a retain cycle. The receiver retains the closure, the closure retains the receiver, neither deinits. The fix is `[weak self]` in the capture list, paired with a `guard let self else { return }` (or optional-chained `self?.`) inside the body."
+
+  checks: [
+    "Every `@escaping` closure that is stored on `self` (or on an object that outlives `self`) captures `self` with `[weak self]`.",
+    "After the capture, the body either uses `self?.x` or unwraps once at the top with `guard let self else { return }`.",
+    "Timer, NotificationCenter, KVO, and Combine subscriptions stored on a view controller use `[weak self]` in their handler closures.",
+    "Non-escaping closures (e.g. the closure passed to `array.map`, `forEach`, sync `withLock`) do *not* need `[weak self]` — strong is fine because the closure does not outlive the call.",
+    "When `[weak self]` would force the closure to do nothing useful if `self` is gone, but the work must still complete, capture `[weak self]` plus a strong copy of the specific dependency the closure actually needs.",
+  ]
+
+  tags: [memory, arc, closures, retain-cycle, swift]
+
+  notes: [
+    "`[unowned self]` is `[weak self]` without the safety net — it crashes if `self` is gone. Use only when the closure is guaranteed to be torn down before the receiver. `[weak self]` is the safer default.",
+    "Under Swift 6's strict concurrency, `Task { [weak self] in ... }` interacts with `Sendable` — capturing `self` weakly in a detached task is the standard pattern.",
+  ]
+
+  related: [
+    @ios-swift/rule-await-not-completion-handler,
+    @ios-swift/rule-prefer-Sendable,
+    @ios-swift/rule-protocol-vs-class-when-to-use,
+  ]
+}

@@ -1,0 +1,31 @@
+// Source: Google Swift Style Guide (CC-BY-3.0)
+// https://google.github.io/swift/#optional-types
+
+rule OptionalChainingOverNilCheck {
+  id: "@ios-swift/rule-optional-chaining-over-nil-check"
+  version: "0.1.0"
+
+  label: "Prefer `?.`, `??`, and pattern-matching to manual `!= nil` checks"
+  domain: ios-swift
+
+  description: "When the goal is 'do this only if the value is present, otherwise produce nothing or a default', Swift gives three short-circuiting forms that are clearer than an `if x != nil` check followed by a body that uses `x!`. Optional chaining (`a?.b?.c()`) propagates nil. Nil-coalescing (`x ?? default`) supplies a fallback. Pattern matching (`if case let .some(value) = x`) reads the cases explicitly. Each removes a force-unwrap and makes the absence-handling part of the expression."
+
+  checks: [
+    "`if x != nil { use(x!) }` is rewritten using optional chaining, `if let`, or `guard let` — never paired with a force-unwrap on the same value.",
+    "Cascading optional access goes through `?.` chains; intermediate `if let` ladders are flattened where the result type tolerates nil.",
+    "Defaulting an optional to a concrete value uses `??` (`name ?? \"Anonymous\"`), not a ternary on `!= nil`.",
+    "Comparing an optional to a non-nil value uses direct equality (`if x == 5`); the compiler wraps the literal in `.some(5)` and the comparison reads naturally.",
+  ]
+
+  tags: [optionals, control-flow, swift]
+
+  notes: [
+    "Optional chaining returns an optional; `arr?.first?.uppercased()` is `String?`. Pair with `??` if a non-optional is needed.",
+    "When a side-effecting call should run only when the receiver is non-nil and the result is discarded, `arr?.append(x)` is the idiomatic form — no `if let` needed.",
+  ]
+
+  related: [
+    @ios-swift/anti-pattern-never-force-unwrap-publicly,
+    @ios-swift/rule-guard-let-early-return,
+  ]
+}

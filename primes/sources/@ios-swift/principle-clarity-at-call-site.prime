@@ -1,0 +1,35 @@
+// Source: Swift API Design Guidelines (Apache-2.0)
+// https://www.swift.org/documentation/api-design-guidelines/#fundamentals
+
+principle ClarityAtCallSite {
+  id: "@ios-swift/principle-clarity-at-call-site"
+  version: "0.1.0"
+
+  domain: ios-swift
+
+  description: "The thesis of the Swift API Design Guidelines: APIs are read more often than they are written, and Swift's type system, default-argument support, and argument-label syntax exist specifically to let you make every call site self-documenting. Optimise for the reader of the use site — not for the brevity of the declaration, not for symmetry with Objective-C, not for what feels easy to type."
+
+  statement: "Clarity at the point of use is your most important goal. Code is read far more often than it is written. Strive to make the call site of every API a grammatical English phrase that documents its own intent. When clarity and brevity conflict, choose clarity. When fluency at the use site requires a longer name or an extra label, the name and the label are correct."
+
+  tags: [principles, naming, api-design, swift]
+
+  applies-to: [
+    "Naming methods, properties, parameters, types, and modules — every named thing the user of the API will read.",
+    "Choosing argument labels and default values: the call site is the test, not the declaration.",
+    "Deciding between method, free function, and computed property — the question is which form reads best at use, not which is shortest to write.",
+    "Documentation: when the call site is clear, the doc comment becomes a short summary, not a substitute for the name.",
+  ]
+
+  notes: [
+    "The corollary in the guidelines: 'Brevity is not a goal.' A short name that requires a documentation lookup is worse than a longer name that reads itself.",
+    "Tested operationally: read three real call sites aloud. If they form English phrases describing what the call does, the names are correct. If the listener has to ask 'what is that 5?' or 'what is that boolean?', a label or a longer name is missing.",
+  ]
+
+  related: [
+    @ios-swift/rule-clarity-at-call-site,
+    @ios-swift/rule-omit-needless-words,
+    @ios-swift/rule-label-args-by-grammar,
+    @ios-swift/rule-name-by-role-not-type,
+    @ios-swift/principle-Swift-as-progressive-disclosure,
+  ]
+}

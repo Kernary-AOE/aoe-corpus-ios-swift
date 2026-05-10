@@ -1,0 +1,32 @@
+// Source: Google Swift Style Guide (CC-BY-3.0)
+// https://google.github.io/swift/#error-types
+
+rule ErrorThrowsNotResultWherePossible {
+  id: "@ios-swift/rule-error-throws-not-result-where-possible"
+  version: "0.1.0"
+
+  label: "Use `throws` for synchronous and async failure; reserve `Result` for stored values and bridges"
+  domain: ios-swift
+
+  description: "Swift has two error-handling shapes: throwing functions (`func f() throws -> T`, `func f() async throws -> T`) and `Result<Success, Failure>`. The throwing form is the language-level mechanism — it integrates with `try`/`catch`, with `async`/`await`, and with typed-throws (Swift 6). Use it for any function whose call site immediately handles or propagates the error. Reserve `Result` for cases where the error must be *stored* alongside the value: callback bridges that cannot be made `async`, completion handlers from older APIs, or stream events that emit successes and failures over time."
+
+  checks: [
+    "New functions that can fail are declared `throws` (or `async throws`), not `-> Result<T, E>`.",
+    "Errors thrown are typed: a meaningful enum (`enum NetworkError: Error { ... }`) per failure mode, not `NSError` or `String`-shaped errors.",
+    "When wrapping a callback API at a module boundary, convert it to `async throws` via `withCheckedThrowingContinuation` rather than exposing `Result` outwards.",
+    "`Result` is used only when the error must be carried as a value: stored in a property, sent through a publisher, paired with a completion handler that predates `async`.",
+  ]
+
+  tags: [error-handling, throws, async, result, swift]
+
+  notes: [
+    "Typed throws (`func f() throws(MyError)`) in Swift 6 makes throwing functions roughly equivalent to `Result` in expressiveness while keeping the syntactic ergonomics.",
+    "Force-try (`try!`) at module boundaries is an anti-pattern; reserve it for compile-time-impossible failures inside trusted code paths and document why.",
+  ]
+
+  related: [
+    @ios-swift/rule-await-not-completion-handler,
+    @ios-swift/rule-protocol-vs-class-when-to-use,
+    @ios-swift/anti-pattern-never-force-unwrap-publicly,
+  ]
+}

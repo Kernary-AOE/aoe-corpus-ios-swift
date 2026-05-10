@@ -1,0 +1,33 @@
+// Source: Swift API Design Guidelines (Apache-2.0)
+// https://www.swift.org/documentation/api-design-guidelines/#fundamentals
+
+rule ClarityAtCallSite {
+  id: "@ios-swift/rule-clarity-at-call-site"
+  version: "0.1.0"
+
+  label: "Optimise every name and signature for the reader of the call site"
+  domain: ios-swift
+
+  description: "Code is read far more often than it is written. Every naming and signature decision — argument labels, method vs. free function, default values, presence or absence of a verb — must be evaluated by reading a sample call out loud and asking whether it reads like English documenting its own intent. Brevity in the declaration is not the goal; clarity at the use site is."
+
+  checks: [
+    "Read three real call sites of the API aloud — they form grammatical English phrases describing what the call does.",
+    "Argument labels appear unless their omission produces a more fluent phrase (see prefer-label-args-by-grammar).",
+    "Names that read fluently at the call site are kept even when the declaration looks slightly longer.",
+    "Documentation comments echo the same phrasing the call site already produces — no surprises.",
+  ]
+
+  tags: [naming, api-design, call-site, swift]
+
+  notes: [
+    "The thesis of the Swift API Design Guidelines: 'Clarity at the point of use is your most important goal.'",
+    "Brevity is not a goal in Swift. A short name that requires a documentation lookup is worse than a longer name that is self-evident.",
+  ]
+
+  related: [
+    @ios-swift/principle-clarity-at-call-site,
+    @ios-swift/rule-omit-needless-words,
+    @ios-swift/rule-name-by-role-not-type,
+    @ios-swift/rule-label-args-by-grammar,
+  ]
+}
