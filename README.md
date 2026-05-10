@@ -13,7 +13,7 @@ braces".
 The corpus answers a common question for AI agents writing Swift:
 *how do I write a Swift API that reads naturally and survives a code
 review?* The answer is no longer "read these two long guides" — it is
-"load this Skill, follow the rules, avoid the anti-pattern."
+"load this Prime, follow the rules, avoid the anti-pattern."
 
 ---
 
@@ -37,7 +37,7 @@ the top of the `.prime` file.
 
 ## License
 
-This Skill is multi-licensed — code, Swift-derived atoms, and
+This Prime is multi-licensed — code, Swift-derived atoms, and
 Google-derived atoms each carry their upstream license:
 
 | Layer | License |
@@ -108,7 +108,7 @@ otherwise.
 
 ### From the marketplace
 
-After this Skill is registered in
+After this Prime is registered in
 [`skill-wiki/website`](https://github.com/skill-wiki/website)'s
 `data/skills.yaml` it appears on the public marketplace and can be
 installed via the website's install flow.
