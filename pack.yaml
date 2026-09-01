@@ -15,10 +15,10 @@ description: >
   follow. Starter seed set; intended to grow.
 
 license: Apache-2.0
-homepage: https://github.com/skill-wiki/kernary-corpus-ios-swift
-repository: https://github.com/skill-wiki/kernary-corpus-ios-swift
+homepage: https://github.com/kernary-aoe/aoe-corpus-ios-swift
+repository: https://github.com/kernary-aoe/aoe-corpus-ios-swift
 maintainers:
-  - skill-wiki
+  - kernary-aoe
 
 # Source corpora — see LICENSE for full attribution.
 sources:

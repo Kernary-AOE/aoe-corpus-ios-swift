@@ -1,7 +1,7 @@
 # skill-corpus-ios-swift/domain.yaml
 #
 # Domain configuration for the Swift API Design + Google Swift Style
-# corpus. Drop this file in the corpus directory and Prime will load it
+# corpus. Drop this file in the corpus directory and AOE will load it
 # at startup — no code changes required.
 #
 # Schema reference: spec/DOMAIN-EXTENSION-SPEC.md

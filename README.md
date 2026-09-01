@@ -66,7 +66,7 @@ directories). To rebuild from sources:
 
 ```bash
 # from the repo root
-bun ../kernary-engine/scripts/build-atom-dirs.ts \
+bun ../aoe-engine/scripts/build-atom-dirs.ts \
   --src primes/sources \
   --out compiled
 
@@ -78,7 +78,7 @@ bun ../kernary-engine/scripts/build-atom-dirs.ts \
 ```
 
 The build script lives in the
-[`kernary-engine`](https://github.com/skill-wiki/kernary-engine) repo. Clone
+[`aoe-engine`](https://github.com/kernary-aoe/aoe-engine) repo. Clone
 both side-by-side, or vendor the script in if you prefer.
 
 ---
@@ -92,9 +92,9 @@ both side-by-side, or vendor the script in if you prefer.
   "mcpServers": {
     "ios-swift": {
       "command": "bunx",
-      "args": ["@skill-wiki/mcp-server-core"],
+      "args": ["@aoe/mcp-server-core"],
       "env": {
-        "PRIME_DIR": "/abs/path/to/kernary-corpus-ios-swift/compiled"
+        "AOE_CORPUS_DIR": "/abs/path/to/aoe-corpus-ios-swift/compiled"
       }
     }
   }
@@ -109,7 +109,7 @@ otherwise.
 ### From the marketplace
 
 After this Corpus Package is registered in
-[`skill-wiki/website`](https://github.com/skill-wiki/website)'s
+[`kernary-aoe/kernary-aoe.github.io`](https://github.com/kernary-aoe/website)'s
 `data/skills.yaml` it appears on the public marketplace and can be
 installed via the website's install flow.
 
@@ -166,7 +166,7 @@ Open a PR. Keep:
 - The `// Source: …` header pointing to the originating guideline section.
 - Edges (`requires` / `enhances` / `contradicts` / `related`) where the
   relationship is real, not for decoration.
-- A passing `bun ../kernary-engine/scripts/build-atom-dirs.ts ...` run.
+- A passing `bun ../aoe-engine/scripts/build-atom-dirs.ts ...` run.
 
 ---
 
