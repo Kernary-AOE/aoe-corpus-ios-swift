@@ -5,7 +5,7 @@
 > type-design, optional-handling, and concurrency rules every iOS / Swift
 > agent should follow before writing the first line of public API.
 
-This is a **starter Domain Corpus Package** for Kernary. It gives
+This is a **starter Domain Corpus Package** for Kernary-AOE. It gives
 an AI coding agent a small, audited reference set covering Swift idioms
 that distinguish good Swift from "Java with `let`" or "Objective-C with
 braces".
