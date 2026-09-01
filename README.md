@@ -1,11 +1,11 @@
 # @ios-swift — Swift API Design + style, atom-shaped
 
-> 17 typed Prime atoms distilled from the **Swift API Design Guidelines**
+> 17 typed corpus units distilled from the **Swift API Design Guidelines**
 > (swift.org) and the **Google Swift Style Guide** — the naming,
 > type-design, optional-handling, and concurrency rules every iOS / Swift
 > agent should follow before writing the first line of public API.
 
-This is a **starter seed corpus** for the Skill Wiki marketplace. It gives
+This is a **starter Domain Corpus Package** for Kernary. It gives
 an AI coding agent a small, audited reference set covering Swift idioms
 that distinguish good Swift from "Java with `let`" or "Objective-C with
 braces".
@@ -13,7 +13,7 @@ braces".
 The corpus answers a common question for AI agents writing Swift:
 *how do I write a Swift API that reads naturally and survives a code
 review?* The answer is no longer "read these two long guides" — it is
-"load this Prime, follow the rules, avoid the anti-pattern."
+"load this corpus, follow the rules, avoid the anti-pattern."
 
 ---
 
@@ -37,7 +37,7 @@ the top of the `.prime` file.
 
 ## License
 
-This Prime is multi-licensed — code, Swift-derived atoms, and
+This Corpus Package is multi-licensed — code, Swift-derived units, and
 Google-derived atoms each carry their upstream license:
 
 | Layer | License |
@@ -66,7 +66,7 @@ directories). To rebuild from sources:
 
 ```bash
 # from the repo root
-bun ../prime-system/scripts/build-atom-dirs.ts \
+bun ../kernary-engine/scripts/build-atom-dirs.ts \
   --src primes/sources \
   --out compiled
 
@@ -78,7 +78,7 @@ bun ../prime-system/scripts/build-atom-dirs.ts \
 ```
 
 The build script lives in the
-[`prime-system`](https://github.com/skill-wiki/prime-system) repo. Clone
+[`kernary-engine`](https://github.com/skill-wiki/kernary-engine) repo. Clone
 both side-by-side, or vendor the script in if you prefer.
 
 ---
@@ -94,7 +94,7 @@ both side-by-side, or vendor the script in if you prefer.
       "command": "bunx",
       "args": ["@skill-wiki/mcp-server-core"],
       "env": {
-        "PRIME_DIR": "/abs/path/to/skill-corpus-ios-swift/compiled"
+        "PRIME_DIR": "/abs/path/to/kernary-corpus-ios-swift/compiled"
       }
     }
   }
@@ -108,7 +108,7 @@ otherwise.
 
 ### From the marketplace
 
-After this Prime is registered in
+After this Corpus Package is registered in
 [`skill-wiki/website`](https://github.com/skill-wiki/website)'s
 `data/skills.yaml` it appears on the public marketplace and can be
 installed via the website's install flow.
@@ -166,7 +166,7 @@ Open a PR. Keep:
 - The `// Source: …` header pointing to the originating guideline section.
 - Edges (`requires` / `enhances` / `contradicts` / `related`) where the
   relationship is real, not for decoration.
-- A passing `bun ../prime-system/scripts/build-atom-dirs.ts ...` run.
+- A passing `bun ../kernary-engine/scripts/build-atom-dirs.ts ...` run.
 
 ---
 
@@ -177,7 +177,7 @@ Open a PR. Keep:
     https://www.swift.org/documentation/api-design-guidelines/
   - Google Swift Style Guide, CC-BY 3.0,
     https://google.github.io/swift/
-- **Atom packaging:** Skill Wiki contributors, Apache-2.0
+- **Corpus packaging:** Kernary contributors, Apache-2.0
 - **Distillation:** the prose in each atom is heavily compressed and
   re-shaped from the originals; this is fair use within each upstream
   license, but the substance is Apple's and Google's work.
